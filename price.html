@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>프라임 렌터카 | 의전서비스 > 가격안내</title>
+  <meta name="description" content="프라임 의전서비스 가격 안내. 의전 요금표, 공항 픽업/의전 요금표, 이용 안내." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand:#3a2c28;
+      --brand-2:#7a5a4b;
+      --text:#1f2328;
+      --muted:#6b7280;
+      --bg:#ffffff;
+      --bg-soft:#faf8f7;
+      --accent:#ffb84d;
+      --radius:14px;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1200px,92%);margin:0 auto}
+
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,.9);backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid #eee;
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      height:64px;
+    }
+    .logo{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--brand)}
+    .logo img{height:28px;width:auto}
+    .menu{display:flex;gap:22px;align-items:center;font-weight:600}
+    .menu a{padding:8px 10px;border-radius:10px}
+    .menu a:hover{background:#f1f1f1}
+    .cta{
+      display:flex;gap:10px;align-items:center
+    }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 14px;border-radius:12px;border:1px solid #e7e7e7;cursor:pointer;
+      font-weight:600;background:#fff;transition:.2s;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+    .hamburger span{width:24px;height:2px;background:#333;border-radius:2px}
+
+    /* Mobile menu */
+    @media (max-width: 900px){
+      .menu{display:none}
+      .hamburger{display:flex}
+      .mobile-drawer{
+        position:fixed;inset:64px 0 auto 0;background:#fff;border-top:1px solid #eee;
+        display:none;flex-direction:column;padding:14px 20px;gap:6px;z-index:40;
+      }
+      .mobile-drawer a{padding:12px;border-radius:10px}
+      .mobile-drawer a:hover{background:#f5f5f5}
+      .mobile-drawer.open{display:flex}
+    }
+
+    /* Hero */
+    .hero{
+      position:relative;
+      height:min(44vw,380px);
+      display:grid;place-items:center;
+      color:#fff;overflow:hidden
+    }
+    .hero::before{
+      content:"";
+      position:absolute;inset:0;
+      background:
+        linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.35)),
+        url('assets/가격안내.jpg') center/cover no-repeat;
+      filter:saturate(108%);
+    }
+    .hero h1{
+      position:relative;margin:0;text-align:center;
+      font-size:clamp(22px,4.2vw,36px);font-weight:900;letter-spacing:-.02em
+    }
+    .hero p{
+      position:relative;margin-top:10px;opacity:.9;
+      font-size:clamp(13px,2.4vw,16px)
+    }
+
+    /* Section */
+    section{padding:48px 0}
+    .section-head{margin-bottom:22px}
+    .kicker{color:var(--brand-2);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:13px}
+    h2{margin:.1rem 0 0;font-size:28px;letter-spacing:-.02em}
+
+    /* Card & table */
+    .grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:24px;
+    }
+    @media (max-width: 980px){ .grid{grid-template-columns:1fr} }
+
+    .card{
+      background:#fff;border:1px solid #eee;border-radius:var(--radius);box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .card header{
+      position:relative;top:auto;border:none;backdrop-filter:none;background:linear-gradient(90deg,#f7f3f1,#fff);
+      padding:16px 18px;height:auto
+    }
+    .card h3{margin:0;font-size:18px}
+    .note{
+      padding:14px 18px;border-top:1px dashed #eee;background:var(--bg-soft);color:#5a5f67;font-size:14px
+    }
+    .table-wrap{padding:10px 14px 16px 14px;overflow:auto}
+    table{border-collapse:separate;border-spacing:0;width:100%;min-width:640px}
+    th,td{padding:12px 10px;text-align:center}
+    thead th{
+      position:sticky;top:0;background:#fff;font-weight:800;color:#333;border-bottom:2px solid #eaeaea
+    }
+    tbody tr{background:#fff;transition:background .2s}
+    tbody tr:nth-child(odd){background:#fcfbfb}
+    tbody tr:hover{background:#fff7ea}
+    td,th{border-right:1px solid #eee}
+    td:last-child,th:last-child{border-right:none}
+    tbody td{border-bottom:1px solid #eee}
+    .left{text-align:left}
+    .badge{
+      display:inline-block;padding:3px 8px;border-radius:999px;background:#fff3e0;border:1px solid #ffd89a;
+      font-size:12px;font-weight:700;color:#a45b00
+    }
+
+    /* Floating widgets */
+    .quick{
+      position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:10px;z-index:60
+    }
+    .fab{
+      width:48px;height:48px;border-radius:14px;border:1px solid #e7e7e7;background:#fff;display:grid;place-items:center;
+      box-shadow:var(--shadow);cursor:pointer
+    }
+    .fab:hover{transform:translateY(-2px)}
+    .side-contact{
+      position:fixed;right:18px;top:45%;display:flex;flex-direction:column;gap:10px;z-index:60
+    }
+    .side-contact a{
+      display:flex;align-items:center;gap:8px;background:#1f2937;color:#fff;padding:10px 12px;border-radius:12px;
+      font-size:14px;box-shadow:var(--shadow)
+    }
+    .side-contact .kakao{background:#fee500;color:#222}
+
+    /* Footer */
+    footer{
+      margin-top:42px;padding:28px 0;background:#0f172a;color:#cbd5e1;font-size:14px
+    }
+    footer a{color:#cbd5e1;text-decoration:underline}
+    .footer-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    @media (max-width: 800px){ .footer-grid{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#"><img alt="PRIME 로고" src="data:image/svg+xml;utf8,
+        <svg xmlns='http://www.w3.org/2000/svg' width='120' height='32' viewBox='0 0 120 32'>
+          <text x='0' y='22' font-family='Arial Black' font-size='20' fill='%233a2c28'>PRIME</text>
+        </svg>">프라임 렌터카</a>
+      <nav class="menu" aria-label="주요 메뉴">
+        <a href="#">회사소개</a>
+        <a href="#" aria-current="page" style="color:var(--brand)">의전서비스</a>
+        <a href="#">렌트서비스</a>
+        <a href="#">포트폴리오</a>
+        <a href="#">고객서비스</a>
+      </nav>
+      <div class="cta">
+        <a class="btn" href="#">로그인</a>
+        <button class="hamburger" id="hamburger" aria-label="모바일 메뉴 열기"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="mobile-drawer" id="drawer">
+      <a href="#">HOME</a>
+      <a href="#">Application</a>
+      <a href="#">Request</a>
+      <a href="#">Contact</a>
+      <a href="#">로그인</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" role="img" aria-label="의전서비스 가격안내 배너">
+    <div class="container">
+      <h1>의전서비스 &gt; 가격안내</h1>
+      <p>의전 전문 드라이빙 서비스 · 공항 픽업/샌딩 · 기업/행사 전용</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="container">
+    <section>
+      <div class="section-head">
+        <div class="kicker">3. 가격 안내</div>
+        <h2>프라임 렌터카 의전 요금표</h2>
+        <p style="color:var(--muted);margin:.4rem 0 0">이미지의 표 내용을 텍스트로 변환하여 반응형 테이블로 구성했습니다. 금액은 예시이며 실제 금액으로 수정하세요.</p>
+      </div>
+
+      <div class="grid">
+        <!-- 세단 -->
+        <article class="card">
+          <header><h3>세단 (10시간/250km 기준)</h3></header>
+          <div class="table-wrap">
+            <table aria-label="세단 의전 요금표">
+              <thead>
+                <tr>
+                  <th class="left">차종</th>
+                  <th>가격요금</th>
+                  <th>시간요금<br>(시간 초과)</th>
+                  <th>거리요금<br>(1km 가산)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="left">G80</td>
+                  <td>380,000</td>
+                  <td>38,000</td>
+                  <td>500</td>
+                </tr>
+                <tr>
+                  <td class="left">G90</td>
+                  <td>450,000</td>
+                  <td>45,000</td>
+                  <td>600</td>
+                </tr>
+                <tr>
+                  <td class="left">※ 성수기·행사일 요금이 달라질 수 있습니다</td>
+                  <td colspan="3">사전 문의</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note">
+            기본 제공: 전담 기사, 차량 보험, 카드/현금 결제. <br/>
+            포함 불가: 유류비/주차료/유료도로비(실비 청구).
+          </div>
+        </article>
+
+        <!-- 승합 -->
+        <article class="card">
+          <header><h3>승합 (10시간/250km 기준)</h3></header>
+          <div class="table-wrap">
+            <table aria-label="승합 의전 요금표">
+              <thead>
+                <tr>
+                  <th class="left">차종</th>
+                  <th>가격요금</th>
+                  <th>시간요금<br>(시간 초과)</th>
+                  <th>거리요금<br>(1km 가산)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="left">더 뉴 카니발</td>
+                  <td>300,000</td>
+                  <td>30,000</td>
+                  <td>400</td>
+                </tr>
+                <tr>
+                  <td class="left">스타리아 라운지</td>
+                  <td>330,000</td>
+                  <td>33,000</td>
+                  <td>400</td>
+                </tr>
+                <tr>
+                  <td class="left">카니발 하이리무진</td>
+                  <td>380,000</td>
+                  <td>38,000</td>
+                  <td>500</td>
+                </tr>
+                <tr>
+                  <td class="left">의전버스 25/27인승</td>
+                  <td>문의</td>
+                  <td>전문문의</td>
+                  <td>전문문의</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note">
+            <span class="badge">안내</span>
+            대형/행사 차량은 일정·구간에 따라 맞춤 견적 제공.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>공항 픽업 · 의전 요금표</h2>
+        <p style="color:var(--muted);margin:.4rem 0 0">이미지 표 형식을 동일하게 구성했습니다. (예시 금액)</p>
+      </div>
+
+      <div class="grid">
+        <!-- 세단 공항 -->
+        <article class="card">
+          <header><h3>세단 (3시간/대기 포함)</h3></header>
+          <div class="table-wrap">
+            <table aria-label="세단 공항 픽업 요금표">
+              <thead>
+                <tr>
+                  <th class="left">차종</th>
+                  <th>기본요금<br>(3시간/대기)</th>
+                  <th>기본요금<br>(4시간/표준)</th>
+                  <th>시간 O/T<br>(1시간 기준)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="left">G80</td>
+                  <td>240,000</td>
+                  <td>210,000</td>
+                  <td>25,000</td>
+                </tr>
+                <tr>
+                  <td class="left">G90</td>
+                  <td>270,000</td>
+                  <td>240,000</td>
+                  <td>30,000</td>
+                </tr>
+                <tr>
+                  <td class="left">서울·수도권 외 지역</td>
+                  <td colspan="3">구간별 가산</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note">
+            공항 입차비·주차료·톨비는 실비 청구. <strong>픽업 지연</strong> 시 항공편 실시간 반영하여 기사 배정.
+          </div>
+        </article>
+
+        <!-- 승합 공항 -->
+        <article class="card">
+          <header><h3>승합 (3~4시간 기준)</h3></header>
+          <div class="table-wrap">
+            <table aria-label="승합 공항 픽업 요금표">
+              <thead>
+                <tr>
+                  <th class="left">차종</th>
+                  <th>기본요금<br>(3시간/대기)</th>
+                  <th>기본요금<br>(4시간/표준)</th>
+                  <th>시간 O/T<br>(1시간 기준)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="left">더 뉴 카니발</td>
+                  <td>170,000</td>
+                  <td>200,000</td>
+                  <td>20,000</td>
+                </tr>
+                <tr>
+                  <td class="left">스타리아 라운지</td>
+                  <td>190,000</td>
+                  <td>220,000</td>
+                  <td>25,000</td>
+                </tr>
+                <tr>
+                  <td class="left">카니발 하이리무진</td>
+                  <td>210,000</td>
+                  <td>240,000</td>
+                  <td>25,000</td>
+                </tr>
+                <tr>
+                  <td class="left">의전버스 27인승</td>
+                  <td>전문문의</td>
+                  <td>전문문의</td>
+                  <td>30,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note">
+            심야(22~06시) <strong>+10%</strong> 가산. 대형 수화물/다인 이동시 승합 추천.
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Side quick actions -->
+  <div class="side-contact" aria-label="빠른 상담">
+    <a class="kakao" href="#" title="카카오 상담">카카오문의</a>
+    <a href="tel:1542-2155" title="전화문의">전화 1542-2155</a>
+  </div>
+  <div class="quick">
+    <button class="fab" id="toTop" title="맨 위로">▲</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>프라임 렌터카(주)</strong><br>
+        대표: 김성우 | 서울특별시 송파구 올림픽로 35길, B동 8층(가칭) | 사업자등록 56-41-48201<br>
+        이메일: prime1234@exam.net | Tel: 1542-2155 | Fax: 02-835-7023
+      </div>
+      <div style="text-align:right">
+        ⓒ 2025 PRIME RENTAL Co.,Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile drawer
+    const ham = document.getElementById('hamburger');
+    const drawer = document.getElementById('drawer');
+    ham?.addEventListener('click',()=>drawer.classList.toggle('open'));
+
+    // Scroll to top
+    document.getElementById('toTop')?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  </script>
+</body>
+</html>
